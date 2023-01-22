@@ -1,0 +1,23 @@
+.see-event-modal {
+  padding: 10px;
+
+  & > div:first-child {
+    span{
+      font-weight: 700;
+      font-size: 15px;
+      margin-right: 5px;
+
+    }
+  }
+
+  & > div:last-child{
+    h2{
+      font-size: 15px;
+      font-weight:700 ;
+    }
+    .remove-btn{
+      padding-top:10px;
+      text-align: right;
+    }
+  }
+}

@@ -1,0 +1,186 @@
+@import '../../Scss/color.scss';
+
+.container {
+  position: relative;
+  width: 100vw;
+  margin: auto;
+
+  .video {
+    object-fit: cover;
+    width: 100vw;
+    height: 44vw;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .text {
+    position: absolute;
+    color: $whiteColor;
+    text-align: center;
+    font-size: 8vw;
+    top: 39%;
+    text-shadow: 0 0 2px #000, 0 0 4px #000;
+    z-index: 1;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.events-header {
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 140%;
+  text-align: left;
+  color: $backgroundBlue;
+  margin-bottom: 15px;
+}
+
+.about-union {
+  display: flex;
+justify-content: space-between;
+  padding: 45px 0px;
+  align-items: center;
+  font-size: 3rem;
+
+
+  h3 {
+    font-weight: 700;
+    font-size: 3rem;
+    padding-bottom: 20px;
+  }
+
+  p {
+width: 85%;
+    font-size: 2.5rem;
+    box-shadow: 0 0 30px rgb(0 0 0 / 35%);
+    padding: 33px;
+    border-radius: 20px;
+  }
+  @media screen and (max-width: 1905px) {
+    p{
+ font-size: 1.5rem;
+    }
+    h3{
+    font-size: 2rem;
+
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .about-union {
+    flex-wrap: wrap;
+  }
+}
+
+.join-us {
+  min-height: 400px;
+  margin: 30px 0;
+
+  &_title {
+    font-weight: 700;
+    font-size: 50px;
+    color: $backgroundBlue;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  &_content {
+    display: flex;
+    justify-content: center;
+
+    @media screen and (max-width: 1300px){
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    & > div:first-child{
+      @media screen and (max-width: 1300px) {
+        order: 1;
+      }
+    }
+    & > div {
+      margin: 0 30px;
+      max-width: 600px;
+
+
+      @media screen and (max-width: 1500px){
+        max-width: 450px;
+      }
+
+      @media screen and (max-width: 1300px){
+        max-width: 600px;
+        margin: auto;
+      }
+
+      @media screen and (max-width: 800px){
+        margin: auto;
+        width: 350px;
+      }
+
+      @media screen and (max-width: 420px){
+        margin: auto;
+        width: 300px;
+      }
+    }
+
+    &_form {
+      width: inherit;
+      @media screen and (max-width: 1200px){
+      margin-top: 40px;
+      }
+
+      input {
+        margin: 10px 0;
+      }
+
+      &_select{
+        margin-top: 20px;
+        width: 600px;
+
+        @media screen and (max-width: 1500px){
+          width: 450px;
+        }
+
+        @media screen and (max-width: 1300px){
+          width: 600px;
+        }
+
+        @media screen and (max-width: 800px){
+          width: 350px;
+        }
+
+        @media screen and (max-width: 400px){
+          width: 300px;
+        }
+      }
+
+      &_btn{
+        margin-top: 15px;
+        text-align: center;
+      }
+    }
+
+    &_img {
+      display: flex;
+      align-items: center;
+      height: inherit;
+
+      img {
+
+        &:hover {
+          transition: 0.3s ease-in-out;
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}
+
+.cardGallery{
+  display: flex;
+  .card{
+  margin: 5px;
+  }
+
+}

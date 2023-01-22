@@ -1,0 +1,69 @@
+@mixin transition {
+    transition: all .3s;
+    -webkit-transition: all 0.3s;
+}
+@mixin longTransition {
+    transition: all .6s;
+    -webkit-transition: all .6s;
+}
+
+$medium-font-size: 1.25rem;
+$medium-font-weight: 500;
+$blackColor: #000000;
+$greyColor: #636363;
+
+.btnItem {
+    text-align: center;
+    width: 12%;
+}
+.btn {
+    @include longTransition;
+    position:relative;
+    text-transform: uppercase;
+    color: $greyColor;
+    font-weight :$medium-font-weight;
+    letter-spacing: 0.1em;
+    padding: 1em 2em;
+    background: transparent;
+    border: 1px solid lighten($greyColor, 30%);
+}
+
+.btnStandard::before,
+.btnStandard::after {
+    @include transition;
+    background-color: $greyColor;
+    content: ' ';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 1px;
+    height: 3px;
+}
+
+.btnStandard::after {
+    top: auto;
+    left: auto;
+    right: -1px;
+    bottom: -1px;
+}
+
+.btnStandard:hover {
+    color: $blackColor;
+    border-bottom-color: $blackColor;
+    border-top-color: $blackColor;
+}
+
+.btnStandard:hover::before,
+.btnStandard:hover::after {
+    background-color: $blackColor;;
+    height: calc(100% + 2px);
+}
+
+@media screen and (max-width: 900px) {
+  .section-heading{
+  font-size: $medium-font-size;
+  }
+  .btnItem{
+    width:45%;
+  }
+}

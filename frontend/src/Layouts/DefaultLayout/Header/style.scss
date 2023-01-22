@@ -1,0 +1,83 @@
+@import '../../../Scss/color.scss';
+
+    .navbar-logo {
+    width: 136px;
+
+}
+
+.navbar {
+        position: sticky;
+   top: 0;
+   z-index: 100;
+    background: $backgroundBlue;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+    a,
+    p {
+        color: $whiteColor;
+        align-items: center;
+        display: block;
+        height: 100%;
+        white-space: nowrap;
+
+    }
+
+    p {
+        padding: 4px;
+
+    }
+
+    a {
+        padding: 0;
+    }
+
+}
+
+.toggle-button {
+    display: none;
+    color: $whiteColor;
+    font-size: 1.8rem;
+
+    @media screen and (max-width:760px) {
+        display: block;
+    }
+}
+
+.navLinks {
+    display: flex;
+    a {
+     padding: 0 31px 0 0;;
+text-transform: uppercase;
+    }
+
+    @media screen and (max-width:760px) {
+        display: none;
+    }
+}
+
+.navLinksMobile {
+    position: absolute;
+    display: block;
+    background: $backgroundBlue;
+    left: 0;
+    top: 75px;
+    width: 100%;
+    z-index: 6;
+
+    a {
+        padding: .5em 1em;
+    }
+}
+
+.nav-section {
+    display: flex;
+    p{
+        margin: 0 3px;
+        cursor: pointer;
+        border: 1px solid white;
+    }
+}

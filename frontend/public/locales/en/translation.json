@@ -1,0 +1,33 @@
+ {
+  "faqs": [{
+      "id": 1,
+      "header": "How do I volunteer at OMUT?",
+      "text": "Thank you for your interest in OMUT! We have a lot of volunteering where we would need your help. Attached is a volunteering form that you need to fill in first."
+    },
+    {
+      "id": 2,
+      "header": "Is OMUT open to the general public?",
+      "text": "Yes, our cosy community is open to the general public. While our programs aim to impact students&#39; lives, our cafe, coworking area and volunteering programmes are open to the public. You should come any working day from 9 am to 5 pm and fill in the form."
+    },
+    {
+      "id": 3,
+      "header": "Where do I park?",
+      "text": "The students&#39; parking lot is near the park. Staff parks in the underground parking."
+    },
+    {
+      "id": 4,
+      "header": "What are the Cafe’s hours?",
+      "text": "The OMI cafe is open every day from 9 am to 10 pm. Breakfast hours are from 9 am to 12 pm, after 12 pm one can order anything from the main menu."
+    },
+    {
+      "id": 5,
+      "header": "How do I find out about upcoming events?",
+      "text": "Follow us on our social media pages :)."
+    },
+    {
+      "id": 6,
+      "header": "Is OMUT currently hiring?",
+      "text": "We have a few open positions, all information you can find on our website in the section &#39;Career&#39;"
+    }
+  ]
+}

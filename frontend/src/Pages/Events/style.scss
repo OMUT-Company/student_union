@@ -1,0 +1,46 @@
+
+.donation_header{
+margin-bottom: 117px;       position: relative;
+    img{
+  width: 100%;
+    }
+}
+.donation_description{
+    display: flex;
+    padding: 20px;
+    position: absolute;
+    bottom: -90px;
+    left: 66px;
+    background: white;
+    width: 87%;
+        .donation_image{
+width: 44vw;
+        }
+    
+}
+.donation_content{
+        padding: 13px 25px;
+    font-size: 1.5rem;
+
+}
+.organization_form {
+width: 80%;
+margin: auto;
+}
+.headerOrg {
+  font-size: 3rem;
+  padding: 0 20px;
+  margin: 40px 0;
+
+  .events-modal {
+    &_form {
+      input {
+        margin-bottom: 10px;
+      }
+
+      &_select {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.organizations {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+
+  &_none{
+    width: 100%;
+    text-align: center;
+    h2{
+      font-size: 50px;
+    }
+  }
+
+  &_item{
+    border:1px solid black;
+    border-radius: 10px;
+
+    &:hover{
+      transition: 0.3s ease-in-out;
+      transform: scale(1.05);
+    }
+  }
+
+  &_info{
+    padding: 15px;
+
+    ul{
+      li{
+        padding: 5px 0;
+
+        span{
+          font-size: 15px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

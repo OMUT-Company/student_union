@@ -1,0 +1,120 @@
+@import '../../Scss/color.scss';
+
+
+.faq-container{
+    min-height: calc(100vh - 400px);
+    &_title{
+        font-size: 70px;
+        font-weight: 500;
+        text-align: center;
+        margin: 50px 0;
+    }
+
+    &_content{
+        .rc-accordion-toggle {
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+            justify-content: space-between;
+            background-color: $backgroundBlue;
+
+            transition: 0.3s;
+          padding: 25px 31px;
+
+            i {
+                color: $whiteColor;
+            }
+        }
+
+        .rc-accordion-toggle.active {
+            background-color: $backgroundBlue;
+        }
+
+        .rc-accordion-toggle.active .rc-accordion-icon {
+            transform: rotate(180deg);
+            color: $whiteColor;
+        }
+
+        .rc-accordion-card {
+            border: 1px solid $backgroundBlue;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            overflow: hidden;
+background: non;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .rc-accordion-title {
+            font-weight: 500;
+            font-size: 22px;
+            position: relative;
+            margin-bottom: 0;
+            color: $whiteColor;
+            transition: 0.3s;
+        }
+
+        .rc-accordion-toggle.active .rc-accordion-title {
+            color: $whiteColor;
+        }
+
+        .rc-accordion-icon {
+            position: relative;
+            top: 2px;
+            color: $backgroundBlue;
+            transition: 0.35s;
+            font-size: 12px;
+        }
+
+        .rc-accordion-body {
+            flex: 1 1 auto;
+            min-height: 1px;
+            padding: 15px;
+
+            p {
+                margin-bottom: 0;
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 24px;
+                color: #727E8C;
+
+            }
+
+        }
+
+        .rc-collapse {
+            position: relative;
+            height: 0;
+            overflow: hidden;
+            transition: height 0.35s ease;
+        }
+
+        .rc-collapse.show {
+            height: auto;
+        }
+
+        .card {
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            color: #475f7b;
+            overflow: hidden;
+
+
+        }
+
+        .card-header {
+            text-align: center;
+            padding: 15px;
+            line-height: 180%;
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+        .card-body {
+            background: #e0e3e8;
+        }
+    }
+}
