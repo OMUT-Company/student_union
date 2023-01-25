@@ -53,42 +53,33 @@ const JoinUs = () => {
 
     /*sjdsdjsdjsdisjdisjdijdijsi*/
     // Example POST method implementation:
-    async function postData(url = '', data = {}) 
-    {
-        // Default options are marked with *
-        const response = await fetch(url, {
-            method: 'PUT', // *GET, POST, PUT, DELETE, etc.
-            mode: 'no-cors', // no-cors, *cors, same-origin
-            cache: 'reload', // *default, no-cache, reload, force-cache, only-if-cached
-            credentials: 'same-origin', // include, *same-origin, omit
-            headers:
-            {
-                'Content-Type': 'application/json'
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            redirect: 'follow', // manual, *follow, error
-            referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-            body: JSON.stringify(data) // body data type must match "Content-Type" header
-        });
-        return response; // parses JSON response into native JavaScript objects
-    }
-
-
-
-
- const join = () => {
+    const join = () => {
         let data = {
-            name: formData.name,
-            surname: formData.surname,
-            age: formData.age,
-            phoneNumber: formData.phoneNumber,
+            name: FormFields.name,
+            surname: FormFields.surname,
+            age: FormFields.age,
+            phoneNumber: FormFields.phoneNumber,
             email: formData.email,
             gender: "male",//formData.gender.value,
             previouslyApplied: formData.previouslyApplied.value === "yes"
         }
-         postData('http://10.19.199.113:5000/api/organization', data)
-            .then((data) => {
-                console.log({data}); // JSON data parsed by `data.json()` call
+
+        fetch("http://localhost:5000/api/organization", {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'no-cors', // no-cors, *cors, same-origin
+            cache: 'reload', // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'same-origin', // include, *same-origin, omit
+            headers: {
+                'Content-type': 'application/json',
+                'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNzEyNTFkZjAzMjM5ZTY4MDAwMDAzMyIsImlhdCI6MTY3NDY3NzIxOSwiZXhwIjoxNjc3MjY5MjE5fQ.GNVGtdzDiiUMlaR9KBXWueldK0uCZaGU0t9SbnXiNy8", // notice the Bearer before your token
+            },
+            redirect: 'follow', // manual, *follow, error
+            referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data) // body data type must match "Content-Type" header
+        })
+
+            .then((res) => {
+                console.log(res.data, res.error); // JSON data parsed by `data.json()` call
             });
 
     }

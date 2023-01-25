@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import Wrap from "../../Layouts/DefaultLayout"
 import Video from "./Video"
 import './style.scss'
@@ -16,32 +16,15 @@ import community from '../../Assets/png/home/community.jpg'
 
 
 const Home = () => {
-    const data = [
-        {
-            index: 1,
-            header: "Tree plantation",
-            date: "01-05-23",
-            description: "Area cleaning is being organized in Ararat territory",
-            url:  plants 
-        },
-        {
-            index: 2,
-            header: "Work with animals",
-            date: "01-05-24",
-            description: "You can also volunteer for roles which don't involve working with animals, for example, many wildlife and animal charities need help organising events or with photography and fundraising.",
-            url:  animals 
-        },
-        {
-            index: 3,
-            header: "community project",
-            date: "01-05-25",
-            description: "You can make a difference in your local area by donating just a few hours each week. From helping with a community-based recycling scheme through to providing support over local health issues, there are many ways to help.",
-            url:  community 
-        }
-    ]
+    
     const dispatch = useDispatch()
 
+    const [data, setData] = useState([]);
+
     useEffect(() => {
+            fetch('http://localhost:5000/api/event',{method : 'POST' ,headers:{'content-type': 'application/json','Authorization' : 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNzEyNTFkZjAzMjM5ZTY4MDAwMDAzMyIsImlhdCI6MTY3NDY3NzIxOSwiZXhwIjoxNjc3MjY5MjE5fQ.GNVGtdzDiiUMlaR9KBXWueldK0uCZaGU0t9SbnXiNy8'}})
+        .then(res => { console.log({data:[... res.data]})})
+    // const dispatch = useDispatch()
         // dispatch(getEvents())
 
         // dispatch(organizationOffer(

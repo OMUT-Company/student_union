@@ -63,6 +63,7 @@ const registration = asyncHandler(async (req, res) => {
 //@access public
 const login = asyncHandler(async (req, res) => {
   try {
+    console.log(req.body.email, req.body.password);
     const { email, password } = req.body;
 
     const admin = await Admin.findOne({ email });

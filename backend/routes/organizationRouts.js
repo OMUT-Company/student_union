@@ -13,7 +13,7 @@ const {
 
 const organizationRouter = Router();
 
-organizationRouter.post("/", protect, create);
+organizationRouter.put("/", protect, create);
 organizationRouter.get("/get", protect, get);
 organizationRouter.put("/update", protect, update);
 organizationRouter.delete("/deleted/:id", deleted);

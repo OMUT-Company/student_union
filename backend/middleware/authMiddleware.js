@@ -1,10 +1,12 @@
 const asyncHandler = require("express-async-handler");
 const jwt = require("jsonwebtoken");
 const Admin = require("../models/AdminModel");
+const { generateToken } = require("../utils/generateToken");
 
 const protect = asyncHandler(async (req, res, next) => {
   try {
     const { headers } = req;
+    console.log("///Bearer "+generateToken("6371251df03239e680000033"));
     if (!headers.authorization || !headers.authorization.startsWith("Bearer")) {
       throw new Error("No authorized, no token");
     }
@@ -12,7 +14,6 @@ const protect = asyncHandler(async (req, res, next) => {
     const token = headers.authorization.split(" ")[1];
     const decode = jwt.verify(token, process.env.JWT_SECRET);
     req.admin = await Admin.findById(decode.id).select("-password");
-
     if (!req.admin) {
       throw new Error("Admin account not found");
     }
