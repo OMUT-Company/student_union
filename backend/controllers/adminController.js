@@ -15,6 +15,7 @@ const registration = asyncHandler(async (req, res) => {
       throw new Error("All fields are required");
     }
 
+    const dataa = { name, surname, email, password };
     const adminExist = await Admin.findOne({ email });
 
     if (!adminExist) {
@@ -24,21 +25,25 @@ const registration = asyncHandler(async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    const admin = await Admin.create({
+    const admin = new Admin({
       name,
       surname,
       email,
       password: hashedPassword,
       verify: true,
     });
+    await admin.save();
 
     if (!admin) {
       throw new Error("Admin account nnot created");
     }
 
+    const token = generateToken(admin.id);
+
     res.status(200).json({
       success: true,
       data: {
+        token,
         result: null,
         message: "Admin added successfully",
       },

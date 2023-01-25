@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import useWindowSize from "../../Hooks/uswWindowSize";
 import { Button, ConfigProvider, Input, Select } from "antd";
-import  joinImg  from "../../Assets/png/join.jpeg";
+import joinImg from "../../Assets/png/join.jpeg";
 import { useDispatch, useSelector } from "react-redux";
 import { volunteerApply } from "../../Store/Content/contentSlice";
 import Notification from "../../Components/atoms/Notification";
@@ -51,18 +51,46 @@ const JoinUs = () => {
         setFormData(copy)
     }
 
-    const join = () => {
+    /*sjdsdjsdjsdisjdisjdijdijsi*/
+    // Example POST method implementation:
+    async function postData(url = '', data = {}) 
+    {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+            mode: 'no-cors', // no-cors, *cors, same-origin
+            cache: 'reload', // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'same-origin', // include, *same-origin, omit
+            headers:
+            {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: 'follow', // manual, *follow, error
+            referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify(data) // body data type must match "Content-Type" header
+        });
+        return response; // parses JSON response into native JavaScript objects
+    }
+
+
+
+
+ const join = () => {
         let data = {
             name: formData.name,
             surname: formData.surname,
             age: formData.age,
             phoneNumber: formData.phoneNumber,
             email: formData.email,
-            gender: formData.gender.value,
+            gender: "male",//formData.gender.value,
             previouslyApplied: formData.previouslyApplied.value === "yes"
         }
+         postData('http://10.19.199.113:5000/api/organization', data)
+            .then((data) => {
+                console.log({data}); // JSON data parsed by `data.json()` call
+            });
 
-        dispatch(volunteerApply(data))
     }
 
     return (
@@ -89,34 +117,6 @@ const JoinUs = () => {
                         <Input name="email" placeholder="Email" value={formData.email} type="email"
                             onChange={inputHandle} />
                     </InputConfig>
-                    <div className="join-us_content_form_select">
-                        <InputConfig>
-                            <Select
-                                placeholder="Have you applied before?"
-                                style={{ width: "inherit" }}
-                                value={formData.previouslyApplied}
-                                options={[
-                                    { value: "yes", text: "Yes" },
-                                    { value: "no", text: "No" }
-                                ]}
-                                onChange={inputHandle}
-                            />
-                        </InputConfig>
-                    </div>
-                    {/* <div className="join-us_content_form_select">
-                        <InputConfig>
-                            <Select
-                                placeholder="Select a gender"
-                                value={formData.gender}
-                                style={{ width: "inherit" }}
-                                options={[
-                                    { value: "male", text: "Male" },
-                                    { value: "female", text: "Female" }
-                                ]}
-                                onChange={inputHandle}
-                            />
-                        </InputConfig>
-                    </div> */}
                     <div className="join-us_content_form_btn">
                         <Button
                             type="primary"

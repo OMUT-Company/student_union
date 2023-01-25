@@ -8,7 +8,24 @@ import TextArea from "antd/es/input/TextArea";
 import {organizationOffer} from "../../Store/Content/contentSlice";
 
 import "./style.scss"
+class fill 
+{
+    constructur(name,dir,add,num,em,mes){
+        this.name = name;
+        this.director = dir;
+        this.address = add;
+        this.number = num;
+        this.email = em;
+        this.message = mes;
+    };
+    name;
+    director;
+    address;
+    number;
+    email;
+    message;    
 
+}
 const FormFields = {
     name: "",
     director: "",
@@ -81,7 +98,7 @@ const OrganizationOfferForm = () => {
                     type="primary"
                     style={{width: 200, backgroundColor: "#162831"}}
                     size={"large"}
-                    onClick={()=>dispatch(organizationOffer(formData))}
+                    onClick={()=>console.log(formData,"datataatatatatatatatataatat!!!!!!!!!!!!")}
                 >
                     SEND THE OFFER
                 </Button>
