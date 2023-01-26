@@ -98,7 +98,7 @@ const OrganizationOfferForm = () => {
                     type="primary"
                     style={{width: 200, backgroundColor: "#162831"}}
                     size={"large"}
-                    onClick={()=>console.log(formData,"datataatatatatatatatataatat!!!!!!!!!!!!")}
+                    onClick={()=>console.log(formData)}
                 >
                     SEND THE OFFER
                 </Button>

@@ -66,7 +66,7 @@ const JoinUs = () => {
 
         fetch("http://localhost:5000/api/organization", {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            mode: 'no-cors', // no-cors, *cors, same-origin
+            mode: 'cors', // no-cors, *cors, same-origin
             cache: 'reload', // *default, no-cache, reload, force-cache, only-if-cached
             credentials: 'same-origin', // include, *same-origin, omit
             headers: {
@@ -77,9 +77,8 @@ const JoinUs = () => {
             referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
             body: JSON.stringify(data) // body data type must match "Content-Type" header
         })
-
             .then((res) => {
-                console.log(res.data, res.error); // JSON data parsed by `data.json()` call
+                console.log({data: res.data, error: res.error}); // JSON data parsed by `data.json()` call
             });
 
     }

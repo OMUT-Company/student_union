@@ -43,7 +43,6 @@ const faqs = [
     }
 ]
 const FAQ = () => {
-const [t,i18]=useTransition()
 
     const [active, setActive] = useState(null);
     const handleToggle = (index) => {
@@ -53,7 +52,6 @@ const [t,i18]=useTransition()
             setActive(index);
         }
     }
-    console.log(i18next(faqs),'i18')
 
     return (
         <section className="faq-container">

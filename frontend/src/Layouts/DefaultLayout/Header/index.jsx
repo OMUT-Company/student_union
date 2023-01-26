@@ -7,11 +7,12 @@ import { useTranslation } from "react-i18next"
 
 const Header = () => {
     const { t, i18n } = useTranslation()
+
     const changeLanguage = (language) => {
         i18n.changeLanguage(language)
     }
     const [isMobile, setIsMobile] = useState(false)
-
+    let data = i18n.t('navigation');
     return (
         <nav className='navbar'>
             <NavLink to='/'>
@@ -22,17 +23,17 @@ const Header = () => {
             <div className="toggle-button" onClick={() => setIsMobile(!isMobile)}>
                 {isMobile ? <i class="fa-regular fa-xmark"></i> : < i class="fa-solid fa-bars" ></i >}
             </div>
-            <div className={isMobile ? 'navLinksMobile' : 'navLinks'} >
+            <div className={isMobile ? 'navLinksMobile' : 'navLinks'}>
                 {/* <NavLink to='/about'>About Us</NavLink> */}
-                <NavLink to='/news'>News</NavLink>
-                <NavLink to='/events'>Investors & Charity</NavLink>
-                <NavLink to='/faq'>FAQ</NavLink>
+                    <NavLink to='/news'>{i18n.t("navigation.news",data)}</NavLink>
+                    <NavLink to='/events'>{i18n.t("navigation.investors",data)}</NavLink>
+                    <NavLink to='/faq'>{i18n.t("navigation.faq",data)}</NavLink>
             </div>
 
             <div className='nav-section'>
-                <p onClick={() => changeLanguage('ru')}>RU</p>
-                <p onClick={() => changeLanguage('en')}>ENG</p>
-                <p onClick={() => changeLanguage('am')}>AM</p>
+                <button onClick={() => changeLanguage('ru')}>RU</button>
+                <button onClick={() => changeLanguage('en')}>ENG</button>
+                <button onClick={() => changeLanguage('am')}>AM</button>
             </div>
 
         </nav>
